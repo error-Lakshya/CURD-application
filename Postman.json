@@ -1,0 +1,107 @@
+{
+    "info": {
+      "name": "Comic Book API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Create Comic Book",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "url": {
+            "raw": "{{baseUrl}}/api/comic-books",
+            "host": ["{{baseUrl}}"],
+            "path": ["api", "comic-books"]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"bookName\": \"Spider-Man: No Way Home\",\n  \"authorName\": \"Stan Lee\",\n  \"yearOfPublication\": 2023,\n  \"price\": 19.99,\n  \"discount\": 0,\n  \"numberOfPages\": 150,\n  \"condition\": \"new\",\n  \"description\": \"The latest Spider-Man comic book.\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Get All Comic Books",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "{{baseUrl}}/api/comic-books?page=1&limit=10&sort=createdAt",
+            "host": ["{{baseUrl}}"],
+            "path": ["api", "comic-books"],
+            "query": [
+              {
+                "key": "page",
+                "value": "1"
+              },
+              {
+                "key": "limit",
+                "value": "10"
+              },
+              {
+                "key": "sort",
+                "value": "createdAt"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "name": "Get Comic Book by ID",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "{{baseUrl}}/api/comic-books/{{comicBookId}}",
+            "host": ["{{baseUrl}}"],
+            "path": ["api", "comic-books", "{{comicBookId}}"]
+          }
+        }
+      },
+      {
+        "name": "Update Comic Book",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "url": {
+            "raw": "{{baseUrl}}/api/comic-books/{{comicBookId}}",
+            "host": ["{{baseUrl}}"],
+            "path": ["api", "comic-books", "{{comicBookId}}"]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"price\": 24.99,\n  \"discount\": 5\n}"
+          }
+        }
+      },
+      {
+        "name": "Delete Comic Book",
+        "request": {
+          "method": "DELETE",
+          "url": {
+            "raw": "{{baseUrl}}/api/comic-books/{{comicBookId}}",
+            "host": ["{{baseUrl}}"],
+            "path": ["api", "comic-books", "{{comicBookId}}"]
+          }
+        }
+      }
+    ],
+    "variable": [
+      {
+        "key": "baseUrl",
+        "value": "http://localhost:3000"
+      },
+      {
+        "key": "comicBookId",
+        "value": "your-comic-book-id-here"
+      }
+    ]
+  }
